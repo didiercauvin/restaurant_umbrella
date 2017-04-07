@@ -13,14 +13,16 @@ defmodule RestaurantWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", RestaurantWeb do
-    pipe_through :browser # Use the default browser stack
+  # scope "/", RestaurantWeb do
+  #   pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
-  end
+  #   get "/", PageController, :index
+  # end
 
   # Other scopes may use custom stacks.
-  # scope "/api", RestaurantWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", RestaurantWeb do
+    pipe_through :api
+
+    resources "/restaurants", RestaurantsController, except: [:new, :edit]
+  end
 end

@@ -1,5 +1,5 @@
 defmodule RestaurantBackend.Restaurant do
-    use Ecto.Schema
+    use RestaurantBackend.Model
 
     schema "restaurants" do
         field :name, :string

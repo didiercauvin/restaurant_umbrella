@@ -1,18 +1,14 @@
 defmodule RestaurantBackend do
+  use RestaurantBackend.Model
   @moduledoc """
   Documentation for RestaurantBackend.
   """
 
-  @doc """
-  Hello world.
+  def restaurants do
+    Repo.all(Restaurant)
+  end
 
-  ## Examples
-
-      iex> RestaurantBackend.hello
-      :world
-
-  """
-  def hello do
-    :world
+  def get!(id) do
+    Repo.get!(Restaurant, id)
   end
 end
