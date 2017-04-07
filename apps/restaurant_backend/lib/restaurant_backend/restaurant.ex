@@ -7,7 +7,7 @@ defmodule RestaurantBackend.Restaurant do
 
     def changeset(restaurant, params \\ %{}) do
         restaurant
-            |> Ecto.Changeset.cast(params, [:name])
-            |> Ecto.Changeset.validate_required([:name])
+            |> cast(params, [:name])
+            |> validate_required([:name])
     end
 end

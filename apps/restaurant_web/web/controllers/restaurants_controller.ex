@@ -8,6 +8,11 @@ defmodule RestaurantWeb.RestaurantsController do
     render(conn, "index.json", restaurants: restaurants)
   end
 
+  def show(conn, %{"id" => id}) do
+    restaurants = RestaurantBackend.get!(id)
+    render(conn, "show.json", restaurants: restaurants)
+  end
+
   # def create(conn, %{"restaurants" => restaurants_params}) do
   #   changeset = Restaurants.changeset(%Restaurants{}, restaurants_params)
 
@@ -24,10 +29,7 @@ defmodule RestaurantWeb.RestaurantsController do
   #   end
   # end
 
-  def show(conn, %{"id" => id}) do
-    restaurants = RestaurantBackend.get!(id)
-    render(conn, "show.json", restaurants: restaurants)
-  end
+  
 
   # def update(conn, %{"id" => id, "restaurants" => restaurants_params}) do
   #   restaurants = Repo.get!(Restaurants, id)

@@ -43,7 +43,9 @@ defmodule RestaurantBackend.Mixfile do
 
   defp aliases do
     [
-      "init": ["run priv/repo/seeds.exs"]
+      "ecto.setup": ["ecto.create", "ecto.migrate", "ecto.seed"],
+      "ecto.seed": ["run priv/repo/seeds.exs"],
+      "ecto.reset": ["ecto.drop", "ecto.setup"]
     ]
   end
 end
